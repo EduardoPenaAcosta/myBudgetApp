@@ -13,7 +13,6 @@ const Transactions = ({transacciones}) => {
     return(
         <>
             <CardSaldo>
-                
                 <FlatList  data={transacciones} renderItem={ itemData => (
                     <>
                     <ListView>

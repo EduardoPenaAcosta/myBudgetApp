@@ -10,8 +10,11 @@ import {
 import Header from './Header';
 import User from './User';
 import Transactions from './Transactions'
+import CardSumRest from './CardSumRest'
 
 const Home = () => {
+
+    const [balance, setBalance] = useState(0);
     
     const initialTransactions = [
         {
@@ -35,6 +38,9 @@ const Home = () => {
         <>
             <Header/>
             <User />
+            <CardSumRest 
+                balance={balance}
+            />
             <TextResume>Resumen de tu cuenta:</TextResume>
             <Transactions 
                 transacciones={transacciones}

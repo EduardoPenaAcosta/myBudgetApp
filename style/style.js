@@ -7,7 +7,8 @@ import {
   TouchableHighlight,
   SafeAreaView,
   TextInput,
-  Image
+  Image,
+  Button
 } from "react-native";
 import Constants from "expo-constants";
 
@@ -16,7 +17,8 @@ export const colors = {
   black: '#000000',
   blueHeader: '#6AE5C6',
   white: '#FFFFFF',
-  whiteGrey: '#CBCACA'
+  whiteGrey: '#CBCACA',
+  blue: '#26A9AF'
 };
 
 const statusBarHeight = Constants.statusBarHeight;
@@ -121,4 +123,38 @@ color: ${colors.white};
 font-style: italic;
 align-items: baseline;
 margin-left: 92%;
+`
+export const CardButtons = styled.View`
+  margin-top: 10px;
+  margin-left: 26%;
+  width: 50%;
+  height: 15%;
+  background-color: ${colors.blue};
+  border-radius: 10px;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  opacity: 0.9;
+`;
+
+export const TextOptions = styled.Text`
+  font-size: 18px;
+  font-weight: bold;
+  color: ${colors.black};
+  align-items: center;
+`
+
+export const TextTitle = styled.Text`
+  font-size: 25px;
+  font-weight: bold;
+  color: ${colors.black};
+  align-items: center;
+`
+
+export const ButtonOptions = styled.TouchableHighlight`
+  background-color: ${colors.white};
+  border-radius:20px;
+  margin: 2px;
+  padding: 10px;
+  color: ${colors.black};
 `
