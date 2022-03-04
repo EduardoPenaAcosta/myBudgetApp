@@ -11,10 +11,13 @@ import Header from './Header';
 import User from './User';
 import Transactions from './Transactions'
 import CardSumRest from './CardSumRest'
+import ModalIngreso from './ModalIngreso'
+import ModalGasto from './ModalGasto'
 
 const Home = () => {
 
     const [balance, setBalance] = useState(0);
+
     
     const initialTransactions = [
         {
@@ -45,6 +48,8 @@ const Home = () => {
             <Transactions 
                 transacciones={transacciones}
             />
+            <ModalIngreso />
+            <ModalGasto />
         </>
         
     );

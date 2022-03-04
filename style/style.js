@@ -8,7 +8,7 @@ import {
   SafeAreaView,
   TextInput,
   Image,
-  Button
+  Button,
 } from "react-native";
 import Constants from "expo-constants";
 
@@ -18,13 +18,15 @@ export const colors = {
   blueHeader: '#6AE5C6',
   white: '#FFFFFF',
   whiteGrey: '#CBCACA',
-  blue: '#26A9AF'
+  blue: '#26A9AF',
+  lightGrey: '#D7DDDD',
+  lightlightGrey: '#E1DFDE',
 };
 
 const statusBarHeight = Constants.statusBarHeight;
 
 export const Container = styled.SafeAreaView`
-  background-color: ${colors.white};
+  background-color: ${colors.lightlightGrey};
   padding: 20px;
   padding-bottom: 0px;
   flex: 1;
@@ -59,7 +61,7 @@ export const ImageRadius = styled.Image`
 `
 
 export const CardUser = styled.View`
-  margin-left: 400;
+  margin-left: 400px;
   width: 600px;
   height: 150px;
   background-color: #A1A1A1;
@@ -142,6 +144,7 @@ export const TextOptions = styled.Text`
   font-weight: bold;
   color: ${colors.black};
   align-items: center;
+  padding-top: 10px;
 `
 
 export const TextTitle = styled.Text`
@@ -154,7 +157,50 @@ export const TextTitle = styled.Text`
 export const ButtonOptions = styled.TouchableHighlight`
   background-color: ${colors.white};
   border-radius:20px;
-  margin: 2px;
-  padding: 10px;
+  margin-top: 2px;
+  padding: 5px;
   color: ${colors.black};
+`
+
+export const ModalContainer = styled.View`
+  padding: 25px;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+`;
+export const ModalView = styled.View`
+  background-color: ${colors.whiteGrey};
+  border-radius: 20px;
+  padding: 35px;
+`;
+
+export const ModalTitle = styled.Text`
+font-size: 25px;
+font-weight: bold;
+color: ${colors.white};
+margin-left: 5%;
+`
+
+export const ModalViewIngreso = styled.View`
+  background-color:${colors.lightGrey}
+  margin-top: 10px;
+  padding: 40px;
+  border-radius: 5px;
+`
+
+export const ModalInput = styled.TextInput`
+  background-color: ${colors.white}
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 15px;
+`
+
+export const ButtonViewModal = styled.View`
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+`;
+export const SpacerButton = styled.View`
+padding-right: 50px;
 `
