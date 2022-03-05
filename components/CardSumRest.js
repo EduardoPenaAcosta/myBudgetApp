@@ -8,16 +8,24 @@ import {
     TextTitle
 }from '../style/style'
 
-const CardSumRest = ({balance}) => {
+const CardSumRest = ({balance,setModalIngreso,setModalGasto}) => {
+
+    const onOpenIngreso = () => {
+        setModalIngreso(true);
+    }
+    const onOpenGasto= () => {
+        setModalGasto(true);
+    }
+
     return(
         <>
         <CardButtons>
             <TextTitle>Balance: {balance}€</TextTitle>
             <TextOptions>Elija lo que desea hacer:</TextOptions>
-            <ButtonOptions>
+            <ButtonOptions onPress={() => onOpenIngreso()}>
                 <TextOptions>Ingreso</TextOptions>
             </ButtonOptions>
-            <ButtonOptions>
+            <ButtonOptions onPress={() => onOpenGasto()}>
                 <TextOptions>Gasto</TextOptions>
             </ButtonOptions>
         </CardButtons>

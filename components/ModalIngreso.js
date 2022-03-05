@@ -14,12 +14,41 @@ import {
 
     import {AntDesign} from '@expo/vector-icons';
 
-const ModalIngreso = () => {
+const ModalIngreso = ({modalIngreso,
+                       setModalIngreso,
+                       setTransacciones,
+                       balance,
+                       setBalance,
+                       transacciones
+                    }) => {
+
+    const [balanceIntroducido,setBalanceIntroducido] = useState('')
+
+    const handleClose = () => {
+        setModalIngreso(false);
+    }
+
+    const handleNewList = () => {
+        setBalance(balance + parseInt(balanceIntroducido));
+        const time = new Date();
+        const fechaTransaccion = time.getDate() + '/' + time.getMonth() + '/' + time.getFullYear() + ' - ' + time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds()
+        const listaTransaccionesNuevas = [{
+            title: 'Ingreso',
+            timestamp: fechaTransaccion,
+            coste:'+'+ balanceIntroducido,
+            key:String(Math.random())
+        },...transacciones]
+        setTransacciones(listaTransaccionesNuevas);
+        setBalanceIntroducido(0);
+        handleClose();
+        
+    }
+
     return(
     <Modal
         animationType="slide"
         transparent={true}
-        visible={false}
+        visible={modalIngreso}
         onRequestClose={() => handleClose()}
     >
         <ModalContainer>
@@ -29,13 +58,16 @@ const ModalIngreso = () => {
                     <TextOptions>Indique cuanto quiere ingresar:</TextOptions>
                     <ModalInput 
                         placeholder="Ingrese el dinero"
-                        type="number"
+                        numeric
                         keyboardType="number-pad"
-                        />
+                        maxLength={6}
+                        onChangeText={(text) => setBalanceIntroducido(text)}
+                        value={balanceIntroducido}
+                    />
                         <ButtonViewModal>
-                            <AntDesign name="check" size={35} color={'green'}/>
+                            <AntDesign name="check" size={35} color={'green'} onPress={() => handleNewList()}/>
                                 <SpacerButton></SpacerButton>
-                            <AntDesign name="close" size={35} color={'red'} />
+                            <AntDesign name="close" size={35} color={'red'} onPress={() => handleClose()}/>
                         </ButtonViewModal>
                 </ModalViewIngreso>
 
