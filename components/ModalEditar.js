@@ -29,18 +29,22 @@ const ModalEditar = ({
                         setTransacciones
                     }) => {
 
-    const [balanceIntroducido,setBalanceIntroducido] = useState('')
-
     const handleClose = () => {
         setModalEditar(false);
     }
 
     const handleEdit = () => {
-        alert("Ejecuta la funcion")
+        const time = new Date();
+        const fechaTransaccion = time.getDate() + '/' + time.getMonth() + '/' + time.getFullYear() + ' - ' + time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds()
         const listaGastos = [...transacciones];
         const indexGastos = transacciones.findIndex((transac) => transac.key === keyEdit);
-        listaGastos.splice(indexGastos,1,editTransaction);
-        console.log(listaGastos);
+        listaGastos.splice(indexGastos,1,{
+            title: titleGastoaEditar,
+            timestamp: fechaTransaccion,
+            coste: balanceaEditar,
+            description: descripcionaEditar,
+            key:String(Math.random())
+        });
         setTransacciones(listaGastos);
         setModalEditar(false);
     }
