@@ -110,6 +110,11 @@ font-weight: bold;
 color: ${colors.white};
 align-items: center;
 `
+export const ListDescriptionGasto = styled.Text`
+font-size: 15px;
+color: ${colors.white};
+align-items: center;
+`
 
 export const ListInversion = styled.Text`
 font-size: 20px;

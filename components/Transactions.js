@@ -6,7 +6,8 @@ import {
     ListView,
     ListTitleGasto,
     ListInversion,
-    ListTimeStamp
+    ListTimeStamp,
+    ListDescriptionGasto
     } from '../style/style'
 
 const Transactions = ({transacciones}) => {
@@ -17,6 +18,7 @@ const Transactions = ({transacciones}) => {
                     <>
                     <ListView>
                         <ListTitleGasto>{itemData.item.title}</ListTitleGasto>
+                        <ListDescriptionGasto>{itemData.item.description}</ListDescriptionGasto>
                         <ListInversion>{itemData.item.coste}€</ListInversion>
                         <ListTimeStamp>{itemData.item.timestamp}</ListTimeStamp>
                     </ListView>

@@ -22,12 +22,14 @@ const Home = () => {
             title: 'Mercadona',
             timestamp: '25/02/22 10:25 A.M',
             coste: '- 25.34',
+            description:'Gasto en supermercado Mercadona La Cuesta',
             key:String(Math.random())
         },
         {
             
             title: 'Ingreso',
             timestamp: '25/02/22 10:25 A.M',
+            description:'Ingreso de dinero',
             coste: '+ 25.34',
             key:String(Math.random())
         }
@@ -63,6 +65,9 @@ const Home = () => {
                 modalGasto={modalGasto}
                 setModalGasto={setModalGasto}
                 setTransacciones={setTransacciones}
+                balance={balance} 
+                setBalance={setBalance}
+                transacciones={transacciones}
             />
         </>
         

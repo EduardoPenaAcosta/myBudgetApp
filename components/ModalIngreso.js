@@ -36,6 +36,7 @@ const ModalIngreso = ({modalIngreso,
             title: 'Ingreso',
             timestamp: fechaTransaccion,
             coste:'+'+ balanceIntroducido,
+            description:'Ingreso de balance',
             key:String(Math.random())
         },...transacciones]
         setTransacciones(listaTransaccionesNuevas);
