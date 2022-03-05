@@ -209,3 +209,19 @@ export const ButtonViewModal = styled.View`
 export const SpacerButton = styled.View`
 padding-right: 50px;
 `
+
+export const ListViewHidden = styled.View`
+  background-color: #A1A1A1;
+  min-height: 85px;
+  width: 100%;
+  padding: 15px;
+  justify-content: center;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  align-items: stretch;
+`;
+
+export const HiddenButton = styled.TouchableOpacity`
+  width: 55px;
+  align-items: center;
+`;

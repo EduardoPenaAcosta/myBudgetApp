@@ -31,10 +31,11 @@ const ModalIngreso = ({
         setModalGasto(false);
     }
 
-    const handleEditList = () => {
+    const handleNewGasto = () => {
         setBalance(balance - parseInt(balanceIntroducido));
         const time = new Date();
-        const fechaTransaccion = time.getDate() + '/' + time.getMonth() + '/' + time.getFullYear() + ' - ' + time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds()
+        const fechaTransaccion = time.getDate() + '/' + time.getMonth() + '/' + time.getFullYear() + ' - ' + 
+                                 time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds();
         const listaTransaccionesNuevas = [{
             title: gastoTitle,
             timestamp: fechaTransaccion,
@@ -90,7 +91,7 @@ const ModalIngreso = ({
                         value={balanceIntroducido}
                     />
                         <ButtonViewModal>
-                            <AntDesign name="check" size={35} color={'green'} onPress={() => handleEditList()}/>
+                            <AntDesign name="check" size={35} color={'green'} onPress={() => handleNewGasto()}/>
                                 <SpacerButton></SpacerButton>
                             <AntDesign name="close" size={35} color={'red'} onPress={() => handleClose()}/>
                         </ButtonViewModal>

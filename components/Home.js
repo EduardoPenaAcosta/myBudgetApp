@@ -13,6 +13,7 @@ import Transactions from './Transactions'
 import CardSumRest from './CardSumRest'
 import ModalIngreso from './ModalIngreso'
 import ModalGasto from './ModalGasto'
+import ModalEditar from './ModalEditar'
 
 const Home = () => {
 
@@ -39,6 +40,27 @@ const Home = () => {
     const [balance, setBalance] = useState(0);
     const [modalIngreso, setModalIngreso] = useState(false);
     const [modalGasto, setModalGasto] = useState(false);
+    
+    const [ modalEditar ,setModalEditar] = useState(false);
+    const [ titleGastoaEditar, setTitleGastoaEditar ] = useState();
+    const [ descripcionaEditar, setDescripcionaEditar ] = useState();
+    const [ balanceaEditar, setBalanceaEditar] = useState();
+    const [ keyEdit, setKeyEdit] = useState();
+    const [ editTransaction, setEditTransaction] = useState();
+
+    const handleEdit = (transaccion) => {
+        setModalEditar(true)
+        setTitleGastoaEditar(transaccion.title);
+        setDescripcionaEditar(transaccion.description);
+        setBalanceaEditar(transaccion.coste);
+        setKeyEdit(transaccion.key);
+        setEditTransaction(transaccion);
+        console.log(keyEdit)
+        
+    }
+
+
+    
 
     return(
         <>
@@ -52,6 +74,8 @@ const Home = () => {
             <TextResume>Resumen de tu cuenta:</TextResume>
             <Transactions 
                 transacciones={transacciones}
+                setTransacciones={setTransacciones}
+                handleEdit={handleEdit}
             />
             <ModalIngreso 
                 modalIngreso={modalIngreso}
@@ -68,6 +92,21 @@ const Home = () => {
                 balance={balance} 
                 setBalance={setBalance}
                 transacciones={transacciones}
+            />
+
+            <ModalEditar 
+                titleGastoaEditar={titleGastoaEditar}
+                setTitleGastoaEditar={setTitleGastoaEditar}
+                descripcionaEditar={descripcionaEditar}
+                setDescripcionaEditar={setDescripcionaEditar}
+                balanceaEditar={balanceaEditar}
+                setBalanceaEditar={setBalanceaEditar}
+                modalEditar={modalEditar}
+                setModalEditar={setModalEditar}
+                transacciones={transacciones}
+                keyEdit={keyEdit}
+                editTransaction={editTransaction}
+                setTransacciones={setTransacciones}
             />
         </>
         
