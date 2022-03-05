@@ -76,6 +76,8 @@ const Home = () => {
                 transacciones={transacciones}
                 setTransacciones={setTransacciones}
                 handleEdit={handleEdit}
+                setBalance={setBalance}
+                balance={balance}
             />
             <ModalIngreso 
                 modalIngreso={modalIngreso}

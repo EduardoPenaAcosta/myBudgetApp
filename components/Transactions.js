@@ -15,15 +15,17 @@ import {
 
     import { Entypo } from '@expo/vector-icons';
 
-const Transactions = ({transacciones, setTransacciones,handleEdit}) => {
+const Transactions = ({transacciones, setTransacciones,handleEdit,setBalance, balance}) => {
 
     const [swipedRow, setSwipedRow] = useState(null);
 
     const handleDelete = (rowKey) => {
        const transaccionesLista = [...transacciones];
-       const indexTransaccion = transacciones.findIndex((item) => item.key = rowKey);
+       const indexTransaccion = transacciones.findIndex((item) => item.key = rowKey.key);
        transaccionesLista.splice(indexTransaccion,1);
        setTransacciones(transaccionesLista)
+       const coste = rowKey.coste.slice(2, rowKey.key.length)
+       setBalance(balance + parseFloat(coste))
     }
 
 
@@ -48,7 +50,7 @@ const Transactions = ({transacciones, setTransacciones,handleEdit}) => {
                                 <ListViewHidden>
                                     <HiddenButton
                                         onPress={() => handleDelete(
-                                            data.item.key) }
+                                            data.item) }
                                     >
                                         <Entypo name="trash" size={25} color={'black'} />
                                     </HiddenButton>
